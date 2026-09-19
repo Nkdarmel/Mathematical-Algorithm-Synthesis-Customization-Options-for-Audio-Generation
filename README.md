@@ -9,9 +9,21 @@ An open-source, dependency-free R project for generating customizable audio sign
 
 ## Overview
 
-This project turns a small set of user preferences into audio signals. It demonstrates additive-free waveform synthesis, objective-function evaluation, finite-difference gradients, gradient descent, and WAV file generation using base R.
+This project turns a small set of user preferences into audio signals. It demonstrates additive-free waveform synthesis, objective-function evaluation, finite-difference gradients, gradient descent, and WAV export using only base R.
 
 The project is designed to be easy to inspect, reuse, and extend. It requires no third-party R packages for its core functionality.
+
+## Repository Achievement
+
+This repository demonstrates a complete, reproducible audio-synthesis workflow implemented in base R:
+
+- **Synthesis:** four configurable waveform generators—sine, square, sawtooth, and triangle.
+- **Customization:** frequency, amplitude, duration, and sample-rate controls.
+- **Optimization:** mean-squared-error evaluation, central finite-difference gradients, and `vibe_voice()` gradient descent.
+- **Composition:** `notebook_lm()` generates multiple equal-length signals as a matrix.
+- **Distribution:** dependency-free mono 16-bit PCM WAV export.
+- **Reproducibility:** executable command-line usage through `Rscript audio_generation.R`.
+- **Maintainability:** documented APIs, contribution guidance, roadmap, and MIT licensing.
 
 ## Achievements
 
