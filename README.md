@@ -1,115 +1,228 @@
-### Mathematical-Algorithm-Synthesis-Customization-Options-for-Audio-Generation
-This project aims to develop a set of algorithms in R that can generate audio signals based on customization options. The goal is to create an interactive system where users can input their preferences and receive generated audio outputs.
+# Mathematical Algorithm Synthesis: Customization Options for Audio Generation
 
-The VibeVoice algorithm works by initializing personalization parameters x0 to default values, then iteratively updating the generated audio signal yi = f(xi) based on current values xi.
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![Language: R](https://img.shields.io/badge/language-R-blue.svg)](https://www.r-project.org/)
+[![Open Source](https://img.shields.io/badge/open--source-MIT-green.svg)](LICENSE)
+[![Base R](https://img.shields.io/badge/dependencies-base%20R-276DC3.svg)](https://www.r-project.org/)
 
-The objective criterion Ji is updated according to the quality of the generated audio signal yi. 
+An open-source, dependency-free R project for generating customizable audio signals and optimizing synthesis parameters with mathematical algorithms.
 
-The optimization algorithm (e.g., gradient descent) updates the personalization parameters xi+1 to minimize the objective function J(x), using the following formula:
+## Overview
 
-x_{i+1} = x_i - α ∇J(xi)
+This project turns a small set of user preferences into audio signals. It demonstrates additive-free waveform synthesis, objective-function evaluation, finite-difference gradients, gradient descent, and WAV export using only base R.
 
-where α is the learning rate and ∇J(xi) is the gradient of the objective criterion at point xi.
+The project is designed to be easy to inspect, reuse, and extend. It requires no third-party R packages for its core functionality.
 
-Code Structure
+## Repository Achievement
 
-The code consists of four main functions:
+This repository demonstrates a complete audio-synthesis workflow implemented in base R and aligned with four practical open-science principles:
 
-1. `vibe_voice`: This function implements the VibeVoice algorithm, which takes two inputs: `x0` (initial set of customization parameters) and `alpha` (learning rate). The function iterates over an optimization process to update the customization parameters based on a quality metric.
-2. `notebook_lm`: This function implements the NotebookLM algorithm, which takes one input: `M` (a set of pre-trained models). The function iterates over each model in `M`, generates audio signals using the VibeVoice algorithm, and calculates an objective function value based on the generated signal quality.
-3. `f`: This function is a placeholder for implementing the actual audio generation algorithm. You will need to fill this function with your own implementation.
-4. `calculate_objective_function` and `grad_j`: These functions are placeholders for calculating the objective function value and computing its gradient, respectively. You will also need to implement these functions.
+### Accessible
 
-To-Do List
+- Uses R 4.0 or newer and no external R packages for core functionality.
+- Provides an MIT license, public source code, readable documentation, and copy-paste examples.
+- Produces standard mono 16-bit PCM WAV files that can be opened with common audio software.
 
-* Implement the actual audio generation algorithm in `f`.
-* Implement the actual objective function calculation in `calculate_objective_function`.
-* Implement the actual gradient computation algorithm in `grad_j`.
+### Findable
 
-Notes
+- Uses a descriptive repository name and a clear README with project purpose, features, API documentation, and project structure.
+- Documents the main public functions: `f()`, `calculate_objective_function()`, `grad_j()`, `vibe_voice()`, `notebook_lm()`, and `write_wav()`.
+- Includes direct links to the repository, license, R language, and project references.
 
-I have used comments throughout the code to explain each section and indicate where you can implement your own functions for generating audio signals and calculating the objective function.
+### Reproducible
 
-Mathematic Algorithm Synthesis: Customization Options for Audio Generation
+- Provides a fixed command-line entry point: `Rscript audio_generation.R`.
+- Documents the exact clone, checkout, syntax-check, and smoke-test commands.
+- Exposes synthesis parameters such as waveform, frequency, amplitude, duration, and sample rate.
+- Records optimization results through objective history and validates input parameters.
 
-Code Snippets in R language
+### Interoperable
 
+- Uses base R data structures such as numeric vectors, lists, and matrices.
+- Exports audio in the widely supported WAV format rather than a proprietary format.
+- Keeps waveform generation, optimization, multi-signal composition, and file export as separate reusable functions.
+- Can be sourced from another R script or used interactively without requiring a package installation.
 
-```R
-# Load necessary libraries
-library(ggplot2)
-library(shiny)
+## Achievements
 
-# Define the VibeVoice algorithm function
-vibe_voice <- function(x0, alpha) {
-  # Initialize x0 to a default set of customization parameters
-  xi <- x0
-  
-  # Iterate over the optimization process
-  for (i in 1:100) {
-    yi <- f(xi)
-    
-    # Update the objective function value Ji based on the quality of the generated audio signal yi
-    ji <- calculate_objective_function(yi)
-    
-    # Update the customization parameters xi+1 using gradient descent
-    xi <- xi - alpha * grad_j(x0, ji)
-  }
-  
-  return(xi)
-}
+This project has reached a functional open-source milestone:
 
-# Define the NotebookLM algorithm function
-notebook_lm <- function(M) {
-  # Initialize a set of pre-trained models M
-  y <- NULL
-  
-  # Iterate over each model in M
-  for (m in M) {
-    yi <- f(m)
-    
-    # Update the objective function value J(x) based on the quality of the generated audio signal yi
-    jx <- calculate_objective_function(yi)
-    
-    # Add the output audio signal to y
-    if (!is.null(y)) {
-      y <- cbind(y, yi)
-    } else {
-      y <- yi
-    }
-  }
-  
-  return(y)
-}
+- ✅ Replaced placeholder algorithms with a working R audio-synthesis implementation.
+- ✅ Added four waveform generators: sine, square, sawtooth, and triangle.
+- ✅ Added customizable frequency, amplitude, duration, and sample-rate controls.
+- ✅ Implemented mean-squared-error objective evaluation against target signals.
+- ✅ Implemented central finite-difference gradients for frequency and amplitude.
+- ✅ Implemented `vibe_voice()` gradient-descent optimization with objective history.
+- ✅ Implemented `notebook_lm()` multi-signal generation.
+- ✅ Added dependency-free mono 16-bit PCM WAV export.
+- ✅ Added executable command-line usage through `Rscript audio_generation.R`.
+- ✅ Added accessible, findable, reproducible, and interoperable project documentation.
+- ✅ Added open-source documentation, contribution guidance, roadmap, and MIT licensing.
 
-# Define a function to generate an audio signal based on customization parameters x
-f <- function(x) {
-  # TO DO: implement the actual audio generation algorithm here
-  
-  return(NULL)
-}
+## Features
 
-# Define a function to calculate the objective function value J(x)
-calculate_objective_function <- function(yi) {
-  # TO DO: implement the actual objective function calculation here
-  
-  return(NULL)
-}
+- Generate sine, square, sawtooth, and triangle waves.
+- Customize frequency, amplitude, duration, and sample rate.
+- Compare generated audio with a target signal using mean squared error.
+- Estimate frequency and amplitude gradients with central finite differences.
+- Optimize parameters with the `vibe_voice()` gradient-descent routine.
+- Generate multiple signals with `notebook_lm()`.
+- Export mono 16-bit PCM WAV files using base R only.
+- Validate input parameters and fail with clear error messages.
 
-# Define a function to compute the gradient of the objective function at point x
-grad_j <- function(x0, ji) {
-  # TO DO: implement the actual gradient computation algorithm here
-  
-  return(NULL)
-}
+## Requirements
+
+- R 4.0 or newer.
+- No external R packages are required.
+
+## Quick start
+
+Clone the repository and run the executable script:
+
+```bash
+git clone https://github.com/Nkdarmel/Mathematical-Algorithm-Synthesis-Customization-Options-for-Audio-Generation.git
+cd Mathematical-Algorithm-Synthesis-Customization-Options-for-Audio-Generation
+Rscript audio_generation.R
 ```
 
-References
+The command creates `generated_audio.wav` in the current directory and prints the initial and final objective values.
 
-[1] "Mathématiques pour les NLP" by Pierre Larochelle (2018).
+To run on the development branch containing the implementation:
 
-[2] "Audio Signal Processing" by Julius O. Smith III (2007).
+```bash
+git checkout build-r-audio-synthesis
+Rscript audio_generation.R
+```
 
-"Microsoft VibeVoice vs Google NoteBookLM" link:https://medium.com/data-science-in-your-pocket/microsoft-vibevoice-vs-google-notebooklm-98412ce2ccc1
+## Use as an R library
 
-"Mathematical Algorithm Synthesis: Customization Options for Audio Generation".link: https://medium.com/@armelnong/mathematic-algorithm-synthesis-customization-options-for-audio-generation-0bc18a9e80bf
+The script can also be sourced from another R program or an interactive R session:
+
+```r
+source("audio_generation.R")
+
+parameters <- list(
+  frequency = 440,
+  amplitude = 0.5,
+  waveform = "sine",
+  duration = 2,
+  sample_rate = 44100
+)
+
+signal <- f(parameters)
+write_wav(signal, "tone.wav", parameters$sample_rate)
+```
+
+Supported waveforms are `sine`, `square`, `saw`, and `triangle`.
+
+## API
+
+### `f(x)`
+
+Generates a numeric mono signal from a parameter list. Frequency is measured in hertz, amplitude ranges from 0 to 1, duration is measured in seconds, and sample rate is measured in samples per second.
+
+### `calculate_objective_function(yi, target = NULL)`
+
+Calculates mean squared error between a generated signal and a target. If no target is supplied, silence is used as the target.
+
+### `grad_j(x, target = NULL, epsilon = 1e-3)`
+
+Calculates a central finite-difference gradient for the numeric `frequency` and `amplitude` parameters.
+
+### `vibe_voice(x0, alpha = 0.01, iterations = 100, target = NULL)`
+
+Optimizes frequency and amplitude with gradient descent. When no target is supplied, the function builds one from `target_frequency` and `target_amplitude` fields, if present.
+
+The optimizer returns:
+
+- `parameters`: optimized parameter list.
+- `objective_history`: objective value for each iteration.
+- `signal`: optimized audio signal.
+- `target`: target signal used for optimization.
+
+### `notebook_lm(M)`
+
+Generates one signal per parameter list and returns them as columns in a matrix. All parameter lists must produce signals of equal length.
+
+### `write_wav(signal, path, sample_rate = 44100)`
+
+Writes a mono 16-bit PCM WAV file without requiring an audio package.
+
+## Mathematical model
+
+For a parameter vector `x`, synthesis produces `y = f(x)`. Given a target signal `t`, the objective function is:
+
+\[
+J(x) = \frac{1}{n} \sum_{k=1}^{n} (f(x)_k - t_k)^2
+\]
+
+The gradient is estimated numerically using central finite differences:
+
+\[
+\frac{\partial J}{\partial x_i} \approx \frac{J(x + \epsilon e_i) - J(x - \epsilon e_i)}{2\epsilon}
+\]
+
+Parameters are updated with gradient descent:
+
+\[
+x_{i+1} = x_i - \alpha \nabla J(x_i)
+\]
+
+Only frequency and amplitude are optimized; waveform, duration, and sample rate remain fixed during an optimization run.
+
+## Project structure
+
+```text
+.
+├── audio_generation.R   # Executable implementation and public functions
+├── README.md             # Documentation and examples
+├── LICENSE               # MIT open-source license
+└── .github/workflows/    # GitHub Actions workflow
+```
+
+## Development and testing
+
+Check the R source for syntax errors:
+
+```bash
+Rscript -e 'parse("audio_generation.R"); cat("R syntax OK\\n")'
+```
+
+Run the executable smoke test:
+
+```bash
+Rscript audio_generation.R
+```
+
+A successful run creates a non-empty `generated_audio.wav`. Generated audio files are ignored by Git and should not be committed.
+
+## Contributing
+
+Contributions are welcome. To contribute:
+
+1. Fork the repository.
+2. Create a focused branch: `git checkout -b improve-synthesis`.
+3. Make and test your changes.
+4. Update the documentation when behavior changes.
+5. Open a pull request describing the change and validation performed.
+
+Please keep contributions dependency-light, preserve the existing public functions where practical, and include reproducible examples for new behavior.
+
+## Roadmap
+
+- Add automated R tests for waveform generation, gradients, and WAV headers.
+- Add optional stereo and envelope support.
+- Add a Shiny interface for interactive parameter customization.
+- Add richer target-signal similarity metrics.
+- Improve optimization with analytic gradients and adaptive learning rates.
+
+## License
+
+This project is open source under the [MIT License](LICENSE). You are free to use, modify, distribute, and build upon the code, subject to the license terms.
+
+## References
+
+1. Pierre Larochelle, *Mathématiques pour les NLP*, 2018.
+2. Julius O. Smith III, *Audio Signal Processing*, 2007.
+3. [Microsoft VibeVoice vs Google NotebookLM](https://medium.com/data-science-in-your-pocket/microsoft-vibevoice-vs-google-notebooklm-98412ce2ccc1).
+4. [Mathematical Algorithm Synthesis: Customization Options for Audio Generation](https://medium.com/@armelnong/mathematic-algorithm-synthesis-customization-options-for-audio-generation-0bc18a).
