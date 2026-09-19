@@ -2,6 +2,8 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Language: R](https://img.shields.io/badge/language-R-blue.svg)](https://www.r-project.org/)
+[![Open Source](https://img.shields.io/badge/open--source-MIT-green.svg)](LICENSE)
+[![Base R](https://img.shields.io/badge/dependencies-base%20R-276DC3.svg)](https://www.r-project.org/)
 
 An open-source, dependency-free R project for generating customizable audio signals and optimizing synthesis parameters with mathematical algorithms.
 
@@ -10,6 +12,21 @@ An open-source, dependency-free R project for generating customizable audio sign
 This project turns a small set of user preferences into audio signals. It demonstrates additive-free waveform synthesis, objective-function evaluation, finite-difference gradients, gradient descent, and WAV file generation using base R.
 
 The project is designed to be easy to inspect, reuse, and extend. It requires no third-party R packages for its core functionality.
+
+## Achievements
+
+This project has reached a functional open-source milestone:
+
+- ✅ Replaced placeholder algorithms with a working R audio-synthesis implementation.
+- ✅ Added four waveform generators: sine, square, sawtooth, and triangle.
+- ✅ Added customizable frequency, amplitude, duration, and sample-rate controls.
+- ✅ Implemented mean-squared-error objective evaluation against target signals.
+- ✅ Implemented central finite-difference gradients for frequency and amplitude.
+- ✅ Implemented `vibe_voice()` gradient-descent optimization with objective history.
+- ✅ Implemented `notebook_lm()` multi-signal generation.
+- ✅ Added dependency-free mono 16-bit PCM WAV export.
+- ✅ Added executable command-line usage through `Rscript audio_generation.R`.
+- ✅ Added open-source documentation, contribution guidance, roadmap, and MIT licensing.
 
 ## Features
 
