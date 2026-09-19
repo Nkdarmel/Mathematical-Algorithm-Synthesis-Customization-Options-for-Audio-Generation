@@ -15,15 +15,33 @@ The project is designed to be easy to inspect, reuse, and extend. It requires no
 
 ## Repository Achievement
 
-This repository demonstrates a complete, reproducible audio-synthesis workflow implemented in base R:
+This repository demonstrates a complete audio-synthesis workflow implemented in base R and aligned with four practical open-science principles:
 
-- **Synthesis:** four configurable waveform generators—sine, square, sawtooth, and triangle.
-- **Customization:** frequency, amplitude, duration, and sample-rate controls.
-- **Optimization:** mean-squared-error evaluation, central finite-difference gradients, and `vibe_voice()` gradient descent.
-- **Composition:** `notebook_lm()` generates multiple equal-length signals as a matrix.
-- **Distribution:** dependency-free mono 16-bit PCM WAV export.
-- **Reproducibility:** executable command-line usage through `Rscript audio_generation.R`.
-- **Maintainability:** documented APIs, contribution guidance, roadmap, and MIT licensing.
+### Accessible
+
+- Uses R 4.0 or newer and no external R packages for core functionality.
+- Provides an MIT license, public source code, readable documentation, and copy-paste examples.
+- Produces standard mono 16-bit PCM WAV files that can be opened with common audio software.
+
+### Findable
+
+- Uses a descriptive repository name and a clear README with project purpose, features, API documentation, and project structure.
+- Documents the main public functions: `f()`, `calculate_objective_function()`, `grad_j()`, `vibe_voice()`, `notebook_lm()`, and `write_wav()`.
+- Includes direct links to the repository, license, R language, and project references.
+
+### Reproducible
+
+- Provides a fixed command-line entry point: `Rscript audio_generation.R`.
+- Documents the exact clone, checkout, syntax-check, and smoke-test commands.
+- Exposes synthesis parameters such as waveform, frequency, amplitude, duration, and sample rate.
+- Records optimization results through objective history and validates input parameters.
+
+### Interoperable
+
+- Uses base R data structures such as numeric vectors, lists, and matrices.
+- Exports audio in the widely supported WAV format rather than a proprietary format.
+- Keeps waveform generation, optimization, multi-signal composition, and file export as separate reusable functions.
+- Can be sourced from another R script or used interactively without requiring a package installation.
 
 ## Achievements
 
@@ -38,6 +56,7 @@ This project has reached a functional open-source milestone:
 - ✅ Implemented `notebook_lm()` multi-signal generation.
 - ✅ Added dependency-free mono 16-bit PCM WAV export.
 - ✅ Added executable command-line usage through `Rscript audio_generation.R`.
+- ✅ Added accessible, findable, reproducible, and interoperable project documentation.
 - ✅ Added open-source documentation, contribution guidance, roadmap, and MIT licensing.
 
 ## Features
